@@ -1,4 +1,18 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/v3XpKQFP)
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=22262387)
-# express-starter
-This is a starter project for Express. It was created with the express project generator and then modified to be a module type (uses imports instead of requires, based on this tutorial), and with VSCode launch settings.
+## Deployed Website URL
+
+
+## Additional Info Displayed in Previewer
+The previewer now extracts **og:site_name** from webpages to display the website name above the title
+Example URL to see it work: http://ischool.uw.edu
+
+## Visual Style Changes
+Styled the preview as a card with a border, rounded corners, padding, centered content, and a pale blue background (#e6f0ff). This groups all preview information together
+
+## Creative Component / Improvement
+- Added extraction of `og:site_name` to provide extra context about the webpage.
+- Centered the text and images, and made the site name smaller and gray for readability.
+- The styling improves clarity and user experience by making each preview visually distinct and easy to scan
+
+## Collaboration
+No other students helped me directly with my code
+
