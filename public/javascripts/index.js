@@ -22,7 +22,7 @@ async function loadPosts(){
 }
 
 async function postUrl(){
-    document.getElementById("postStatus").innerHTML = "sending data..."
+    document.getElementById("postStatus").innerText = "sending data..."
     let url = document.getElementById("urlInput").value;
     let description = document.getElementById("descriptionInput").value;
     let siteType = document.getElementById("siteTypeInput").value;
@@ -44,7 +44,7 @@ async function postUrl(){
     document.getElementById("descriptionInput").value = "";
     document.getElementById("siteTypeInput").value = "";
     document.getElementById("url_previews").innerHTML = "";
-    document.getElementById("postStatus").innerHTML = "successfully uploaded"
+    document.getElementById("postStatus").innerText = "successfully uploaded"
     loadPosts();
 }
 
@@ -53,7 +53,7 @@ let lastTypedUrl = ""
 let lastTypedTime = Date.now();
 let lastURLPreviewed = "";
 async function previewUrl(){
-    document.getElementById("postStatus").innerHTML = "";
+    document.getElementById("postStatus").innerText = "";
     let url = document.getElementById("urlInput").value;
 
     // make sure we are looking at a new url (they might have clicked or something, but not changed the text)
@@ -76,12 +76,12 @@ async function previewUrl(){
 
         if(url != lastURLPreviewed) { // make sure this isn't the one we just previewd
             lastURLPreviewed = url; // mark this url as one we are previewing
-            document.getElementById("url_previews").innerHTML = "Loading preview..."
+            document.getElementById("url_previews").innerText = "Loading preview..."
             try{
                 let response = await fetch(`api/${apiVersion}/urls/preview?url=` + url)
                 let previewHtml = await response.text()
                 if(url == lastURLPreviewed){
-                    document.getElementById("url_previews").innerHTML = previewHtml;
+                    document.getElementById("url_previews").innerText = previewHtml;
                 }
             }catch(error){
                 document.getElementById("url_previews").innerHTML = "There was an error: " + error;
