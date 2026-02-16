@@ -7,24 +7,24 @@ import getURLPreview from '../utils/urlPreviews.js';
 //TODO: Add handlers here
 
 router.post('/', async (req, res) => {
+
+  if (!req.session.isAuthenticated) {
+      return res.status(401).json({
+        status: 'error',
+        error: 'not logged in'
+      })
+    }
+
   try {
-    // get data
-    let url1 = req.body.url;
-    let description1 = req.body.description;
-    // let siteType = req.body.siteType;
-
-
-    // create new post object
-    const newObject = new req.models.Post({
-      url: url1,
-      description: description1,
-      // siteType: siteType,
+    const newPost = new req.models.post({
+      url: req.body.url,
+      description: req.body.description,
       username: req.session.account.username,
       created_date: new Date()
-    });
+    })
 
     // save to database
-    await newObject.save();
+    await newPost.save();
 
     // return success
     res.json({"status": "success"});
@@ -42,7 +42,13 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     // find all posts in mongodb
-    const posts = await req.models.Post.find({});
+    let query = {};
+
+    if (req.query.username) {
+      query.username = req.query.username;
+    }
+
+    const posts = await req.models.Post.find(query);
 
     // generate previews for each posts
     let postData = await Promise.all(
@@ -54,12 +60,12 @@ router.get('/', async (req, res) => {
               return {
                 description: post.description,
                 htmlPreview: htmlPreview,
-                siteType: post.siteType
+                username: post.username
               }
           }catch(error){
               // TODO: return error message
               return {
-                description: post.descirption,
+                description: post.description,
                 htmlPreview: error.toString()
               }
           }
