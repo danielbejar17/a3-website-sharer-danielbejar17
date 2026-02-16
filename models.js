@@ -15,6 +15,7 @@ async function main() {
     url: String,
     description: String,
     siteType: String,
+    username: String,
     created_date: { type: Date, default: Date.now },
   })
 

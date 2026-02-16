@@ -9,10 +9,14 @@
   "dependencies": {
     "cookie-parser": "^1.0.0",
     "debug": "~2.6.9",
+    "dotenv": "^17.3.1",
     "express": "^5.1.0",
+    "express-session": "^1.19.0",
+    "microsoft-identity-express": "^1.0.0-beta",
     "mongodb": "^7.0.0",
     "mongoose": "^9.1.5",
     "morgan": "^1.10.1",
+    "msal-node-wrapper": "github:afitz0/ms-identity-javascript-nodejs-tutorial-msal-node-v2-wrapper",
     "node-fetch": "^3.3.2",
     "node-html-parser": "^7.0.2"
   }
