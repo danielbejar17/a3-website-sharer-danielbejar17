@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
     const newCommentText = req.body.newComment;
     const postId = req.body.postID;
 
-    const newComment = new models.Comment({
+    const newComment = new req.models.Comment({
       username: username,
       comment: newCommentText,
       post: postId,
