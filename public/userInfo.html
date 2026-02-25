@@ -17,16 +17,26 @@
     <div id="identity_div">loading...</div>
   </nav>
   <h1>Website Sharer</h1>
-  
+
   <h2>Info for user: <span id="username-span"></span></h2>
   <div id="user_info_div">
-    TODO: For A7, show user info here (loadUserInfo function in userInfo.js)
+    <p><strong>Bio:</strong></p>
+    <div id="bio_display"></div>
+
+    <p><strong>Favorite Website:</strong></p>
+    <div id="website_display"></div>
   </div>
   <br>
   <div id="user_info_new_div" class="d-none">
     <h3>Update User Info:</h3>
-    TODO: For A7, add input fields here here (saveUserInfo function in userInfo.js)
+    <textarea id="bio_input"
+              class="form-control"
+              placeholder="Your bio"></textarea>
     <br>
+
+    <input id="website_input"
+           class="form-control"
+           placeholder="Favorite website URL"/>
     <button onclick="saveUserInfo()">Save User Info</button>
   </div>
   <br><br>

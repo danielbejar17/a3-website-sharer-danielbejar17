@@ -27,8 +27,16 @@ async function main() {
     created_date: { type: Date, default: Date.now },
   })
 
+  const userInfo = new mongoose.Schema({
+    username: {type: String, unique: true },
+    bio: String,
+    favoriteWebsite: String,
+    created_date: { type: Date, default: Date.now }
+  })
+
   models.Post = mongoose.model('Post', postSchema);
   models.Comment = mongoose.model('Comment', commentSchema);
+  models.UserInfo = mongoose.model('UserInfo', userInfo);
   console.log("mongoose models created")
 }
 
