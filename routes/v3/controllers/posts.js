@@ -102,7 +102,7 @@ router.post('/like', async (req, res) => {
     const username = req.session.account.username;
     const postId = req.body.postID;
 
-    const post = await models.Post.findById(postId);
+    const post = await req.models.Post.findById(postId);
 
     if (!post.likes.includes(username)) {
       post.likes.push(username);
@@ -134,7 +134,7 @@ router.post('/unlike', async (req, res) => {
     const username = req.session.account.username;
     const postId = req.body.postID;
 
-    const post = await models.Post.findById(postId);
+    const post = await req.models.Post.findById(postId);
 
     if (post.likes.includes(username)) {
       post.likes = post.likes.filter(
@@ -168,7 +168,7 @@ router.delete('/', async (req, res) => {
     const username = req.session.account.username;
     const postId = req.body.postID;
 
-    const post = await models.Post.findById(username);
+    const post = await req.models.Post.findById(postId);
 
     if (post.username !== username) {
       return res.status(401).json({
@@ -177,11 +177,11 @@ router.delete('/', async (req, res) => {
       })
     }
 
-    await models.Comment.deleteMany({
+    await req.models.Comment.deleteMany({
       post: postId
     })
 
-    await models.Post.deleteOne({
+    await req.models.Post.deleteOne({
       post: postId
     })
 
