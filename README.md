@@ -1,4 +1,4 @@
-## A6: Website Sharer (Comments and Likes)
+## A7: Website Sharer (Add User Info)
 
 Deployed URL:
 https://websitesharerdb.me/
